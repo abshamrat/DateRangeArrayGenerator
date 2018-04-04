@@ -22,7 +22,7 @@
 	     * Return difference between $to_date and $from_date
 	     *
 	     * @param return_format|String| params sample= %R%a days
-	     * @return days
+	     * @return days in numeric from
 	     */
 		public function getDiff($return_format='%a')
 		{
