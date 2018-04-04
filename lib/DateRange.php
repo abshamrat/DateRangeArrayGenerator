@@ -32,16 +32,19 @@
 		{
 			$diff 		= $this->getDiff();
 			$date_array = array();
-			array_push($date_array, $this->from_date);
-			
+			array_push($date_array, $this->from_date->format($this->date_format));
 			for ($i=1; $i < $diff; $i++) { 
-				$this->from_date->add(DateInterval::createFromDateString($i.' days'));
-				array_push($date_array, $this->from_date);			
+				$new_date = $this->from_date->add(new DateInterval('P1D'));
+				array_push($date_array, $new_date->format($this->date_format));			
 			}
-			array_push($date_array, $this->to_date);
+			array_push($date_array, $this->to_date->format($this->date_format));
 
 			return $date_array;
 
+		}
+		public function setDateReturnFormat($format)
+		{
+			$this->date_format = $format;
 		}
 	}
 
