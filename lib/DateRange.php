@@ -2,7 +2,7 @@
 
 	/**
 	* Author: Abu Bakar Siddique (Shamrat)
-	* extends DateTime
+	* 
 	*/
 	class DateRange
 	{
@@ -13,10 +13,7 @@
 		function __construct($from_date, $to_date)
 		{
 			$this->from_date = new DateTime($from_date);
-			// $this->from_date = $this->from_date->format($this->date_format);
-			
 			$this->to_date   = new DateTime($to_date);
-			// $this->to_date   = $this->to_date->format($this->date_format);
 		}
 		/**
 	     * Return difference between $to_date and $from_date
@@ -28,6 +25,10 @@
 		{
 			return $this->to_date->diff($this->from_date)->format($return_format);
 		}
+		/**
+	     * Genrate array of date according to date range
+	     *
+	     */
 		public function getDateArrayOverRange()
 		{
 			$diff 		= $this->getDiff();
@@ -42,6 +43,11 @@
 			return $date_array;
 
 		}
+		/**
+	     * Set date format
+	     *
+	     * @param format|String
+	     */
 		public function setDateReturnFormat($format)
 		{
 			$this->date_format = $format;
