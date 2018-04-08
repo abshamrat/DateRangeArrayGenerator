@@ -52,6 +52,29 @@
 		{
 			$this->date_format = $format;
 		}
+		/**
+	     * Get from_date
+	     * @param format|String
+	     */
+		public function getFromDate($format=0)
+		{
+			if ($format) {
+				return $this->from_date->format($format);
+			}
+			return $this->from_date->format($this->date_format);
+
+		}
+		/**
+	     * Get from_date
+	     * @param format|String
+	     */
+		public function getToDate($format=0)
+		{
+			if ($format) {
+				return $this->to_date->format($format);
+			}
+			return $this->to_date->format($this->date_format);
+		}
 	}
 
 
